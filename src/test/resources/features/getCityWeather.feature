@@ -1,15 +1,15 @@
 #language: en
 
-Feature: Search Weather By City
+Feature: Search Weather By City Name
 
   @GetWeather
 
   Scenario Outline: Successfully find Weather
 
-    When I send a Get request to the endpoint '<endpoint>' with parameter '<param>' and value '<value>'
+    When I send a Get request to the endpoint '<endpoint>' with city name '<name>'
     Then I validate the response code is '<code>' and the structure '<keys>' is valid
 
     Examples:
-      | endpoint | param | value    | code | keys        |
+      | endpoint | name     | code | keys                |
 ##@externaldata@parameters/Datos.xlsx@EndpointInfo
-      | /weather | name  | Aberdeen | 200  | data,status |
+      | /weather | Aberdeen | 200  | name,weather,status |
