@@ -1,6 +1,5 @@
 package com.weatherapi.runners;
 
-
 import com.weatherapi.utils.BeforeSuite;
 import com.weatherapi.utils.DataToFeature;
 import io.cucumber.junit.CucumberOptions;
@@ -10,16 +9,16 @@ import org.junit.runner.RunWith;
 import java.io.IOException;
 
 @CucumberOptions(
-        features = "src/test/resources/features",
-        tags = "@GetWeather",
+        features = "src/test/resources/features/",
         glue = "com.weatherapi.stepDefinitions",
+        tags = "@GetCityWeather",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 @RunWith(PersonalizedRunner.class)
 public class GetCityWeatherRunner {
-
     @BeforeSuite
-    public static void test() throws InvalidFormatException, IOException{
-        DataToFeature.overrideFeatureFiles(".src/test/resources/features/getCityWeather.feature");
+    public static void test() throws InvalidFormatException, IOException {
+        DataToFeature.overrideFeatureFiles("src/test/resources/features/getCityWeather.feature");
     }
+
 }
